@@ -1,8 +1,8 @@
 # README
 
 Сущности:
-* Пользователь
-* Тест
-* Вопрос
-* Ответ
-* Результат
+* User 
+* Test 
+* Question
+* Answer
+* Result
