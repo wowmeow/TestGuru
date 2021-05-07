@@ -1,2 +1,0 @@
-class Ansver < ApplicationRecord
-end
