@@ -10,27 +10,27 @@ users = User.create!([{ name: 'Иван Иванов', role: 'user', login: 'iva
                       { name: 'Софья Иванова', role: 'user', login: 'sonya', password: 'sonya1' },
                       { name: 'Степан Петров', role: 'user', login: 'stepan', password: 'stepan1' }])
 
-categories = Category.create!([{ name: 'Программирование' }])
+categories = Category.create!([{ title: 'Программирование' }])
 
-tests = Test.create!([{ title: 'RoR', level: 0, category: categories[0], user: users[0] },
-                      { title: 'RoR', level: 1, category: categories[0], user: users[1] },
-                      { title: 'C++', level: 0, category: categories[0], user: users[1] },
-                      { title: 'C#', level: 0, category: categories[0], user: users[2] }])
+tests = Test.create!([{ title: 'RoR', level: 0, category: categories[0], author: users[0] },
+                      { title: 'RoR', level: 1, category: categories[0], author: users[1] },
+                      { title: 'C++', level: 0, category: categories[0], author: users[1] },
+                      { title: 'C#', level: 0, category: categories[0], author: users[2] }])
 
-questions = Question.create!([{ text: 'Какой-то вопрос для теста по RoR уровня 0', test_id: 1 },
-                              { text: 'Какой-то вопрос для теста по RoR уровня 1', test_id: 2 },
-                              { text: 'Какой-то текст для теста по RoR уровня 0', test_id: 1 },
-                              { text: 'Какой-то текст для теста по С++ уровня 0', test_id: 3 },
-                              { text: 'Какой-то текст для теста по С# уровня 0', test_id: 4 }])
+questions = Question.create!([{ text: 'Rails - это ...', test_id: 0 },
+                              { text: 'Ruby относится к высокоуровнему языку программирования?', test_id: 1 },
+                              { text: 'Rails реализует архитектурный шаблон Model-View-Controller?', test_id: 1 },
+                              { text: 'В каком году возник С++?', test_id: 2 },
+                              { text: 'В какой компании работали созатели С#?', test_id: 3 }])
 
-answers = Answer.create!([{ title: 'yes', correct: true, question: questions[0] },
-                          { title: 'no', correct: false, question: questions[0] },
-                          { title: 'yes', correct: true, question: questions[1] },
-                          { title: 'no', correct: false , question: questions[1] },
-                          { title: 'class', correct: true, question: questions[2] },
-                          { title: 'method', correct: false, question: questions[2] },
-                          { title: 'yes', correct: false, question: questions[3] },
-                          { title: 'no', correct: true, question: questions[3] },
-                          { title: '1', correct: true, question: questions[4] },
-                          { title: '2', correct: false, question: questions[4] },
-                          { title: '3', correct: false, question: questions[4] }])
+answers = Answer.create!([{ title: 'язык программирования', correct: false, question: questions[0] },
+                          { title: 'фреймворк', correct: true, question: questions[0] },
+                          { title: 'да', correct: true, question: questions[1] },
+                          { title: 'нет', correct: false, question: questions[1] },
+                          { title: 'да', correct: true, question: questions[2] },
+                          { title: 'нет', correct: false, question: questions[2] },
+                          { title: '1980', correct: true, question: questions[3] },
+                          { title: '1981', correct: false, question: questions[3] },
+                          { title: '1990', correct: false, question: questions[3] },
+                          { title: 'Google', correct: false, question: questions[4] },
+                          { title: 'Microsoft', correct: true, question: questions[4] }])
