@@ -41,3 +41,7 @@ answers = Answer.create!([{ title: 'язык программирования', 
                           { title: '1990', correct: false, question_id: questions[3].id },
                           { title: 'Google', correct: false, question_id: questions[4].id },
                           { title: 'Microsoft', correct: true, question_id: questions[4].id }])
+
+result = Result.create!([{ user_id: users[0].id, test_id: tests[0].id },
+                         { user_id: users[0].id, test_id: tests[1].id },
+                         { user_id: users[0].id, test_id: tests[2].id }])
