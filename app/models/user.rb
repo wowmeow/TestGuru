@@ -1,8 +1,7 @@
 class User < ApplicationRecord
-  has_many :tests
-  has_many :results, dependent: :destroy
-
-  def current_tests_by(level)
-    tests.where(level: level)
+  def all_tests_with(level)
+    Test.joins('JOIN results ON tests.id == results.test_id')
+        .where(results: { user_id: id })
+        .where(tests: { level: level })
   end
 end
