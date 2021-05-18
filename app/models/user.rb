@@ -1,9 +1,7 @@
 class User < ApplicationRecord
-  # belongs_to :category
-  # has_many :tests
-  # has_many :questions
-  # has_many :results
-  # has_many :tests, through: :results
+  has_many :tests, dependent: :nullify
+  has_many :results, dependent: :destroy
+  has_many :tests, through: :results, dependent: :destroy
 
   def all_tests_with(level)
     Test.joins('JOIN results ON tests.id == results.test_id')
