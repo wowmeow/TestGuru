@@ -14,10 +14,12 @@ class Test < ApplicationRecord
   scope :medium_level, -> { where(level: (2..4)) }
   scope :hard_level, -> { where(level: (5..Float::INFINITY)) }
 
-  scope :with_category, lambda { |category_name|
+  scope :all_with_category, lambda { |category_name|
     joins(:category)
       .where(categories: { title: category_name })
-      .pluck(:title)
   }
 
+  def self.all_with_category_only_title(category_name)
+    all_with_category(category_name).pluck(:title)
+  end
 end

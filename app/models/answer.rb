@@ -4,11 +4,11 @@ class Answer < ApplicationRecord
   validates :title, presence: true
   validate :validate_max_for_question, on: create
 
-  scope :correct_answers, -> { where(correct: true) }
+  scope :correct, -> { where(correct: true) }
 
   private
 
   def validate_max_for_question
-    errors.add(self) if question_id.count > 4 || question_id.count < 1
+    errors.add(:answers) if question.answers.count > 4
   end
 end
