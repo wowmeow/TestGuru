@@ -7,6 +7,8 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :password, null: false
 
       t.timestamps
+
+      t.index :login, unique: true
     end
   end
 end
