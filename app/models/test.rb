@@ -1,5 +1,5 @@
 class Test < ApplicationRecord
-  belongs_to :author, class_name: "User"
+  belongs_to :author, class_name: 'User'
   belongs_to :category
 
   has_many :results, dependent: :destroy
@@ -14,12 +14,9 @@ class Test < ApplicationRecord
   scope :medium_level, -> { where(level: (2..4)) }
   scope :hard_level, -> { where(level: (5..Float::INFINITY)) }
 
-  scope :all_with_category, lambda { |category_name|
-    joins(:category)
-      .where(categories: { title: category_name })
-  }
+  scope :by_category, ->(category_name) { joins(:category).where(categories: { title: category_name }) }
 
-  def self.all_with_category_only_title(category_name)
-    all_with_category(category_name).pluck(:title)
+  def self.by_category_only_title(category_name)
+    by_category(category_name).pluck(:title)
   end
 end
