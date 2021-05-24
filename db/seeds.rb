@@ -8,7 +8,6 @@ users = User.create!([{ name: 'Иван Иванов', role: 'user', login: 'iva
                       { name: 'Софья Иванова', role: 'user', login: 'sonya', password: 'sonya1' },
                       { name: 'Степан Петров', role: 'user', login: 'stepan', password: 'stepan1' }])
 
-
 categories = Category.create!([{ title: 'Программирование' },
                                { title: 'Дизайн' }])
 
