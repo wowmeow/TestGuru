@@ -25,6 +25,8 @@ config/private_pub.yml
 /public/tmp
 /public/uploads
 /public/spec
+/public/packs
+/public/packs-test
 
 # Mac OS files
 .DS_Store
@@ -49,3 +51,7 @@ certs/
 dump.rdb
 config/*.sphinx.conf
 db/sphinx
+
+.byebug_history
+/node_modules
+/public/assets
