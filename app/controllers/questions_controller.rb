@@ -1,13 +1,14 @@
 class QuestionsController < ApplicationController
-  before_action :find_test
+  before_action :find_test, only: %i[index create destroy]
+  before_action :find_test, only: %i[show destroy]
 
   def index
     render plain: @test.questions.pluck(:text)
   end
 
   def create
-    question = @test.questions.new(test_params)
-    if question.save
+    @question = @test.questions.new(test_params)
+    if @question.save
       redirect_to question
     else
       render :new
@@ -26,11 +27,17 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
+    redirect_to test_path(@question.test)
   end
 
   private
+
   def find_test
     @test = Test.find(params[:test_id])
+  end
+
+  def find_question
+    @question = Question.find(params[:id])
   end
 
   def test_params
