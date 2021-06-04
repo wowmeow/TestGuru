@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index create destroy]
-  before_action :find_test, only: %i[show destroy]
+  before_action :find_test, only: %i[index create]
+  before_action :find_question, only: %i[show destroy]
 
   def index
     render plain: @test.questions.pluck(:text)
