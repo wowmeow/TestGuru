@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
   def index
-    render plain: Test.pluck(:title)
+    render plain: Test.all.pluck(:title)
   end
 end
