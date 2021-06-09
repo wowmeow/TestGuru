@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: %i[index]
+  before_action :find_test, only: %i[show]
 
   def show
     @test = find_test
