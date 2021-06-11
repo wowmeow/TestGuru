@@ -6,12 +6,9 @@
 </p>
 
 <p>
-  <strong>Вопросы теста:</strong>
-  <% @test.questions.each do |question| %>
-    <p><%= question.text %></p>
-  <% end %>
-<p>
+  <strong>Вопросы:</strong><br>
+  <%= render @test.questions %>
+</p>
 
-<p><%= link_to 'Добавить новый вопрос', new_test_question_path(@test) %></p>
+<br><strong><%= link_to 'Добавить новый вопрос', new_test_question_path(@test) %></strong>
 
-<%= link_to 'Изменить тест', edit_test_path(@test) %>
