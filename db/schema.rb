@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2021_05_13_135331) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
     t.string "title", null: false
     t.boolean "correct", default: false, null: false
-    t.integer "question_id", null: false
+    t.bigint "question_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -29,15 +32,15 @@ ActiveRecord::Schema.define(version: 2021_05_13_135331) do
 
   create_table "questions", force: :cascade do |t|
     t.string "text", null: false
-    t.integer "test_id", null: false
+    t.bigint "test_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
   create_table "results", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "test_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "test_id", null: false
     t.integer "progress", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -49,8 +52,8 @@ ActiveRecord::Schema.define(version: 2021_05_13_135331) do
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level", default: 0, null: false
-    t.integer "category_id", null: false
-    t.integer "author_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "author_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_tests_on_author_id"
