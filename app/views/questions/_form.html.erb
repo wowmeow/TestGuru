@@ -1,0 +1,10 @@
+<%= form_with model: [@test, @question], locale: true do |form| %>
+  <%= render 'shared/errors', resource: @question %>
+
+  <p>
+    <%= form.label :text, 'Текст вопроса:' %>
+    <%= form.text_field :text, id: :question_text%>
+  </p>
+
+  <p><%= form.submit "Добавить" %></p>
+<% end %>
