@@ -3,8 +3,8 @@
 
   <p>
     <%= form.label :text, 'Текст вопроса:' %>
-    <%= form.text_field :text, id: :question_text%>
+    <%= form.text_field :text, id: :question_text, rows: 2, cols: 60%>
   </p>
 
-  <p><%= form.submit "Добавить" %></p>
+  <p><%= form.submit 'Сохранить' %></p>
 <% end %>
