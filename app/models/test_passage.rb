@@ -1,9 +1,11 @@
 class TestPassage < ApplicationRecord
+  SUCCESSFUL_RESULT = 0.85
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_first_question, on: :create
+  before_validation :before_validation_set_current_question
 
   def completed?
     current_question.nil?
@@ -16,10 +18,27 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def current_question_number
+    test.questions.order(:id).where('id < ?', current_question.id).count + 1
+  end
+
+  def current_result
+    correct_questions.to_i / test.questions.count
+  end
+
+  def successful_result?
+    current_result >= SUCCESSFUL_RESULT
+  end
+
   private
 
-  def before_validation_set_first_question
-    self.current_question = test.questions.first if test.present?
+  def before_validation_set_current_question
+    self.current_question =
+      if new_record?
+        test.questions.first if test.present?
+      else
+        next_question
+      end
   end
 
   def correct_answer?(answer_ids)
