@@ -8,8 +8,12 @@ class User < ApplicationRecord
   validates :password, presence: true
 
   scope :all_tests_with_level, lambda { |level|
-    Test.joins(:results)
+    Test.joins(:test_passages)
         .where(results: { user_id: id })
         .where(tests: { level: level })
   }
+
+  def test_passage(test)
+    test_passages.order(id: :desc).find_by(test_id: test.id)
+  end
 end
