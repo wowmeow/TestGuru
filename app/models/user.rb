@@ -1,11 +1,16 @@
+require 'digest/sha1'
+
 class User < ApplicationRecord
+
+  include Auth
+
   has_many :created_tests, class_name: 'Test', foreign_key: :author_id, dependent: :nullify
   has_many :test_passages
   has_many :tests, through: :test_passages, dependent: :destroy
 
   validates :name, presence: true
-  validates :login, presence: true, uniqueness: true
-  validates :password, presence: true
+
+  has_secure_password
 
   scope :all_tests_with_level, lambda { |level|
     Test.joins(:test_passages)
