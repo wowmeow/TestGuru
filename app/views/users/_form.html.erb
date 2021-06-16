@@ -1,7 +1,5 @@
 <%= form_with model: @user, locale: true do |form| %>
-  <%# if flash[:alert] %>
-    <%#= content_tag :p, flash[:alert], class: 'flash alert' %>
-  <%# end %>
+  <%= render 'shared/errors', resource: @user %>
 
   <p>
     <%= form.label :name, 'Имя:' %>
@@ -9,13 +7,13 @@
   </p>
 
   <p>
-    <%= form.label :email, 'Почта:' %>
-    <%= form.text_field :text, id: :user_email %>
+    <%= form.label :login, 'Логин:' %>
+    <%= form.text_field :login, id: :user_login %>
   </p>
 
   <p>
-    <%= form.label :login, 'Логин:' %>
-    <%= form.text_field :login, id: :user_login %>
+    <%= form.label :email, 'Почта:' %>
+    <%= form.text_field :text, id: :user_email %>
   </p>
 
   <p>
