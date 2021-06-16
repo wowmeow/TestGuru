@@ -22,18 +22,23 @@ questions = Question.create!([{ text: 'Rails - это ...', test: tests[0] },
                               { text: 'В каком году возник С++?', test: tests[2] },
                               { text: 'В какой компании работали созатели С#?', test: tests[3] }])
 
-answers = Answer.create!([{ title: 'язык программирования', correct: false, question: questions[0] },
-                          { title: 'фреймворк', correct: true, question: questions[0] },
-                          { title: 'да', correct: true, question: questions[1] },
-                          { title: 'нет', correct: false, question: questions[1] },
-                          { title: 'да', correct: true, question: questions[2] },
-                          { title: 'нет', correct: false, question: questions[2] },
-                          { title: '1980', correct: true, question: questions[3] },
-                          { title: '1981', correct: false, question: questions[3] },
-                          { title: '1990', correct: false, question: questions[3] },
-                          { title: 'Google', correct: false, question: questions[4] },
-                          { title: 'Microsoft', correct: true, question: questions[4] }])
+Answer.create!([{ title: 'язык программирования', correct: false, question: questions[0] },
+                { title: 'фреймворк', correct: true, question: questions[0] },
+                { title: 'да', correct: true, question: questions[1] },
+                { title: 'нет', correct: false, question: questions[1] },
+                { title: 'да', correct: true, question: questions[2] },
+                { title: 'нет', correct: false, question: questions[2] },
+                { title: '1980', correct: true, question: questions[3] },
+                { title: '1981', correct: false, question: questions[3] },
+                { title: '1990', correct: false, question: questions[3] },
+                { title: 'Google', correct: false, question: questions[4] },
+                { title: 'Microsoft', correct: true, question: questions[4] }])
 
-result = Result.create!([{ user: users[0], test: tests[0] },
-                         { user: users[0], test: tests[1] },
-                         { user: users[0], test: tests[2] }])
+TestPassage.create!([{ user: users[0], test: tests[0] },
+                     { user: users[0], test: tests[1] },
+                     { user: users[0], test: tests[3] },
+                     { user: users[0], test: tests[3] },
+                     { user: users[1], test: tests[0] },
+                     { user: users[1], test: tests[3] },
+                     { user: users[2], test: tests[1] },
+                     { user: users[2], test: tests[2] }])

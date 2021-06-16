@@ -1,0 +1,17 @@
+<h1>Тест '<%= @test_passage.test.title %>' завершен</h1>
+
+<p>
+  Тест выполнен на
+
+  <% if @test_passage.successful_result? %>
+  <span class="successful_result"><%= @test_passage.current_result.to_i * 100 %></span><br>
+  Тест пройден успешно<br>
+
+<% else %>
+
+  <span class="unsuccessful_result"><%= @test_passage.current_result.to_i * 100 %>%</span><br>
+  Тест не пройден<br>
+<% end %>
+</p>
+
+<%= link_to 'Ко всем тестам', tests_path %>
