@@ -1,5 +1,12 @@
 <%= form_with model: @user, locale: true do |form| %>
-  <%= render 'shared/errors', resource: @user %>
+  <%# if flash[:alert] %>
+    <%#= content_tag :p, flash[:alert], class: 'flash alert' %>
+  <%# end %>
+
+  <p>
+    <%= form.label :name, 'Имя:' %>
+    <%= form.text_field :text, id: :user_name %>
+  </p>
 
   <p>
     <%= form.label :email, 'Почта:' %>
@@ -21,5 +28,5 @@
     <%= form.password_field :password_confirmation, id: :user_password_confirmation %>
   </p>
 
-  <p><%= form.submit 'Вход' %></p>
+  <p><%= form.submit 'Ввод' %></p>
 <% end %>
