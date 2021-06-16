@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
-    redirect_to login_path, alert: 'Неверный логин или пароль' unless current_user
+    redirect_to login_path, alert: 'Для продолжения необходимо зарегистрироваться' unless current_user
   end
 
   def current_user
