@@ -1,5 +1,4 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: %i[show]
   before_action :set_test, only: %i[show start]
   before_action :set_user, only: :start
 
@@ -18,10 +17,6 @@ class TestsController < ApplicationController
   end
 
   private
-
-  def find_test
-    set_test
-  end
 
   def test_params
     params.require(:test).permit(:title, :category_id, :author_id)
