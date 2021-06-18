@@ -7,7 +7,10 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
-    redirect_to login_path, alert: 'Для продолжения необходимо зарегистрироваться' unless current_user
+    unless current_user
+      cookies[:path] = request.path
+      redirect_to login_path, alert: 'Для продолжения необходимо зарегистрироваться'
+    end
   end
 
   def current_user
