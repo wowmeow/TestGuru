@@ -1,0 +1,30 @@
+<%= form_with model: @user, locale: true do |form| %>
+  <%= render 'shared/errors', resource: @user %>
+
+  <p>
+    <%= form.label :name, 'Имя:' %>
+    <%= form.text_field :text, id: :user_name %>
+  </p>
+
+  <p>
+    <%= form.label :login, 'Логин:' %>
+    <%= form.text_field :login, id: :user_login %>
+  </p>
+
+  <p>
+    <%= form.label :email, 'Почта:' %>
+    <%= form.text_field :text, id: :user_email %>
+  </p>
+
+  <p>
+    <%= form.label :password, 'Пароль:' %>
+    <%= form.password_field :password, id: :user_password %>
+  </p>
+
+  <p>
+    <%= form.label :password_confirmation, 'Подтверждение пароля:' %>
+    <%= form.password_field :password_confirmation, id: :user_password_confirmation %>
+  </p>
+
+  <p><%= form.submit 'Ввод' %></p>
+<% end %>

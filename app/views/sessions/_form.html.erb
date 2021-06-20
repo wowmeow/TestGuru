@@ -1,0 +1,15 @@
+<%= form_with url: sessions_path, locale: true do |form| %>
+  <%= flash_message(:alert) %>
+
+  <p>
+    <%= form.label :login, 'Логин:' %>
+    <%= form.text_field :login, id: :login %>
+  </p>
+
+  <p>
+    <%= form.label :password, 'Пароль:' %>
+    <%= form.password_field :password, id: :password %>
+  </p>
+
+  <p><%= form.submit 'Ввод' %></p>
+<% end %>
