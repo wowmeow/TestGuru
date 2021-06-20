@@ -1,13 +1,13 @@
-<% if logged_in?%>
+<% if user_signed_in %>
   <p class="nav user">
     <%= link_to 'TestGuru', root_path %> |
     Добро пожаловать, <b><%= current_user.name %></b> |
-    <%= link_to 'Выход', logout_path, method: :delete %><br>
+    <%= link_to 'Выход', destroy_user_session_path, method: :delete %><br>
   </p>
 <% else %>
   <p class='nav user'>
     <%= link_to 'TestGuru', root_path %> |
-    <%= link_to 'Регистрация', signup_path %> |
-    <%= link_to 'Вход', login_path %>
+    <%= link_to 'Регистрация', new_user_registration_path %> |
+    <%= link_to 'Вход', new_user_session_path %>
   </p>
 <% end %>
