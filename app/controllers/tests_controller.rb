@@ -6,12 +6,9 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
-  def show
-    set_test
-  end
+  def show; end
 
   def start
-    set_test
     current_user.tests.push(@test)
     redirect_to current_user.test_passage(@test)
   end
