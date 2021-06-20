@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   devise :database_authenticatable,
          :registerable,
          :recoverable,
@@ -10,7 +9,8 @@ class User < ApplicationRecord
   has_many :test_passages
   has_many :tests, through: :test_passages, dependent: :destroy
 
-  validates :name, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   scope :all_tests_with_level, lambda { |level|
