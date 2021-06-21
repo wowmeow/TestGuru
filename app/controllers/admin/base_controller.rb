@@ -1,5 +1,4 @@
 class Admin::TestController < ApplicationController
-
   layout 'admin'
 
   before_action :authentication_user!
@@ -12,5 +11,4 @@ class Admin::TestController < ApplicationController
       redirect_to root_path, alert: 'Для просомтра этой страницы необходимо авторизоваться.'
     end
   end
-  
 end

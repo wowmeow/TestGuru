@@ -5,9 +5,9 @@ User.delete_all
 Category.delete_all
 
 users = User.create!(
-  [{ name: 'Иван Иванов', role: 'user', login: 'ivan1', password: 'ivan1', email: 'ivan1@mail.ru' },
-   { name: 'Софья Иванова', role: 'user', login: 'sonya', password: 'sonya1', email: 'sonya1@gmail.com' },
-   { name: 'Степан Петров', role: 'user', login: 'stepan', password: 'stepan1', email: 'stepan1@yandex.ru' }]
+  [{ first_name: 'Иван', last_name: 'Иванов', type: 'Admin', password: 'ivan1234', email: 'ivan1@mail.ru' },
+   { first_name: 'Анна', last_name: 'Иванова', type: 'Admin', password: 'sonya1', email: 'sonya1@gmail.com' },
+   { first_name: 'Степан', last_name: 'Колотушкин', type: 'User', password: 'stepan1', email: 'stepan1@yandex.ru' }]
 )
 
 categories = Category.create!([{ title: 'Программирование' },
