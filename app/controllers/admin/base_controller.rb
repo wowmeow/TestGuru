@@ -7,8 +7,6 @@ class Admin::TestController < ApplicationController
   private
 
   def admin_required!
-    unless current_user.is_a?(Admin)
-      redirect_to root_path, alert: 'Для просомтра этой страницы необходимо авторизоваться.'
-    end
+    redirect_to root_path, alert: 'Необходимо авторизоваться.' unless current_user.is_a?(Admin)
   end
 end
