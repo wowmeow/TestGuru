@@ -1,0 +1,20 @@
+<h1>Тест: <%= @test.title %></h1>
+
+<p>
+  <strong>Уровень:</strong>
+  <%= @test.level %>
+</p>
+
+<p>
+  <strong>Вопросы:</strong><br>
+
+  <br><strong><%= link_to 'Добавить новый вопрос', new_test_question_path(@test) %></strong>
+
+  <ol>
+    <%= render partial: 'questions/question', collection: @test.questions %>
+  </ol>
+</p>
+
+<%= link_to 'Редактировать', edit_admin_test_path(@test) %>
+<%= link_to 'Назад', admin_test_path %>
+
