@@ -20,6 +20,8 @@ module RailsBasics
     #
     config.time_zone = 'Moscow'
     config.i18n.default_locale = :ru
+
+    config.autoload_paths << "#{Rails.root}/lib/clients"
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
