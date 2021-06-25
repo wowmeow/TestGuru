@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 2021_06_24_151731) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name", default: "guest", null: false
+    t.string "role", default: "user", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: ""

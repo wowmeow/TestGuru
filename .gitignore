@@ -55,5 +55,3 @@ db/sphinx
 .byebug_history
 /node_modules
 /public/assets
-
-.env
