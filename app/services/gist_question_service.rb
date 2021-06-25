@@ -26,8 +26,6 @@ class GistQuestionService
   end
 
   def gist_content
-    content = [@question.text]
-    content += @question.answers.pluck(:title)
-    content.join("\n")
+    [@question.text, *@question.answers.pluck(:title)].join("\n")
   end
 end
