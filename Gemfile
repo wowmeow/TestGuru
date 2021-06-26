@@ -29,10 +29,7 @@ gem 'jbuilder', '~> 2.7'
 # AUTH
 gem 'devise', '~> 4.0'
 
-# NETWORKING
-gem 'faraday'
-
-gem "octokit", "~> 4.0"
+gem 'octokit', '~> 4.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -67,3 +64,6 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'rubocop-rails', require: false
+
+# set ENV
+gem 'figaro'

@@ -1,5 +1,4 @@
 en:
-  test_passages:
-    gist:
+  gists:
       success: 'Gist was successfully created!'
       failure: 'An error occurred while saving gist'

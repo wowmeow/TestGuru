@@ -1,12 +1,15 @@
 class GistQuestionService
-  def initialize(question, client: nil)
+  ResultObject = Struct.new(:success?, :html_url)
+
+  def initialize(question)
     @question = question
     @test = @question.test
-    @client = client || GitHubClient.new
+    @client = Octokit::Client.new(access_token: ENV.fetch(:GITHUB_ACCESS_TOKEN))
   end
 
   def call
-    @client.create_gists(gist_params)
+    response = @client.create_gist(gist_params)
+    ResultObject.new(response.html_url.present?, response.html_url)
   end
 
   private
@@ -23,8 +26,6 @@ class GistQuestionService
   end
 
   def gist_content
-    content = [@question.text]
-    content += @question.answers.pluck(:title)
-    content.join("\n")
+    [@question.text, *@question.answers.pluck(:title)].join("\n")
   end
 end

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  root 'tests#index'
+  root to: 'tests#index'
 
-  devise_for :users, path: :gurus, path_names: { sing_in: :login, sing_out: :logout }
+  devise_for :users, path: :gurus, path_names: { sing_in: :login, sing_out: :logout },
+                     controllers: { session: 'sessions' }
+
+  resources :gists, only: :create
 
   resources :tests, only: :index do
     member do
@@ -12,7 +15,6 @@ Rails.application.routes.draw do
   resources :test_passages, only: %i[show update] do
     member do
       get :result
-      post :gist
     end
   end
 
@@ -22,5 +24,7 @@ Rails.application.routes.draw do
         resources :answers, shallow: true, except: :index
       end
     end
+
+    resources :gists, only: :index
   end
 end
