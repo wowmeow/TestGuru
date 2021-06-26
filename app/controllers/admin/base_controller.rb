@@ -1,4 +1,4 @@
-class Admin::TestController < ApplicationController
+class Admin::BaseController < ApplicationController
   layout 'admin'
 
   before_action :authentication_user!
