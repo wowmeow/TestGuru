@@ -1,6 +1,6 @@
 class GistsController < ApplicationController
   def create
-    find_test_passage
+    @test_passage = TestPassage.find(params[:id])
     result = GistQuestionService.new(@test_passage.current_question).call
 
     if result.success?
@@ -11,11 +11,5 @@ class GistsController < ApplicationController
     end
 
     redirect_to @test_passage
-  end
-
-  private
-
-  def find_test_passage
-    @test_passage = TestPassage.find(params[:id])
   end
 end
