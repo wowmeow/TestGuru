@@ -8,7 +8,8 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-require("utilities/")
+import("utilities/")
+import("../utilities/password_confirmation")
 
 Rails.start()
 Turbolinks.start()
