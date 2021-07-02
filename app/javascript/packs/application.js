@@ -8,9 +8,16 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-import("utilities/")
+import("../utilities/sorting_table")
 import("../utilities/password_confirmation")
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+// sorting the test table
+document.addEventListener('turbolinks:load', function () {
+    const table_id = "test_table"
+
+    if (table_id !== "") new SortingTable(table_id)
+})
