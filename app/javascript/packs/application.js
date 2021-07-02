@@ -16,8 +16,15 @@ Turbolinks.start()
 ActiveStorage.start()
 
 // sorting the test table
-document.addEventListener('turbolinks:load', function () {
+document.addEventListener('turbolinks:load',  () => {
     const table_id = "test_table"
 
     if (table_id !== "") new SortingTable(table_id)
+})
+
+// password confirmation
+document.addEventListener('turbolinks:load', () => {
+    const registration = document.getElementById('new_user_reg_form')
+
+    if (registration) new PasswordConfirmation(registration)
 })
