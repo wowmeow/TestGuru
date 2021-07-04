@@ -18,13 +18,17 @@ ActiveStorage.start()
 // sorting the test table
 document.addEventListener('turbolinks:load',  () => {
     const table_id = "test_table"
-
-    if (table_id !== "") new SortingTable(table_id)
 })
 
 // password confirmation
 document.addEventListener('turbolinks:load', () => {
-    const registration = document.getElementById('new_user_reg_form')
+    // const registration = document.getElementById('registration_new')
+    const password = document.querySelector('#user_password')
+    const passwordConfirmation = document.querySelector('#user_password_confirmation')
 
-    if (registration) new PasswordConfirmation(registration)
+    if ((document.getElementById('registration_new')) && (password.value !== '' && passwordConfirmation.value !== '')) {
+        new PasswordConfirmation(password, passwordConfirmation)
+
+        this.passwordConfirmation.addEventListener('input', this.checkPasswordConfirmation)
+    }
 })

@@ -1,33 +1,12 @@
 class PasswordConfirmation {
-    constructor() {
-        this.password = document.querySelector('#user_password')
-        this.passwordConfirmation = document.querySelector('#user_password_confirmation')
-
-        this.setup()
-    }
-
-    setup() {
-        if (this.password.value !== '' && this.passwordConfirmation.value !== '') {
-            this.password.addEventListener('input', this.checkPassword)
-            this.passwordConfirmation.addEventListener('input', this.checkPasswordConfirmation)
-        }
-    }
-
-    checkPassword() {
-        const passwordConfirmation = document.querySelector('#user_password_confirmation')
-
-        if (this.password && passwordConfirmation.value) {
-            (this.password === passwordConfirmation.value) ? this.showMatch() : this.showMismatch()
-        } else {
-            this.messageHide()
-        }
+    constructor(password, passwordConfirmation) {
+        this.password = password
+        this.passwordConfirmation = passwordConfirmation
     }
 
     checkPasswordConfirmation() {
-        const password = document.querySelector('#user_password')
-
-        if (this.passwordConfirmation && password.value) {
-            (this.passwordConfirmation === password.value) ? this.showMatch() : this.showMismatch()
+        if (this.passwordConfirmation && this.password) {
+            (this.passwordConfirmation === this.password) ? this.showMatch() : this.showMismatch()
         } else {
             this.messageHide()
         }

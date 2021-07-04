@@ -41,9 +41,9 @@ class SortingTable {
         sortedTable.classList.add('table')
         sortedTable.appendChild(this.rows[0])
 
-        for (let i = 0; i < this.sortedRows.length; i++) {
-            sortedTable.appendChild(this.sortedRows[i])
-        }
+        this.sortedRows.forEach(function (row) {
+            sortedTable.appendChild(this.row)
+        })
 
         this.table.parentNode.replaceChild(sortedTable, this.table)
     }
