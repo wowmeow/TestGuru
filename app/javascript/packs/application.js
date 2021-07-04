@@ -16,19 +16,19 @@ Turbolinks.start()
 ActiveStorage.start()
 
 // sorting the test table
-document.addEventListener('turbolinks:load',  () => {
-    const table_id = "test_table"
+document.addEventListener('turbolinks:load', () => {
+  const table_id = "test_table"
 })
 
 // password confirmation
 document.addEventListener('turbolinks:load', () => {
-    // const registration = document.getElementById('registration_new')
-    const password = document.querySelector('#user_password')
-    const passwordConfirmation = document.querySelector('#user_password_confirmation')
+  // const registration = document.getElementById('registration_new')
+  const password = document.querySelector('#user_password')
+  const passwordConfirmation = document.querySelector('#user_password_confirmation')
 
-    if ((document.getElementById('registration_new')) && (password.value !== '' && passwordConfirmation.value !== '')) {
-        new PasswordConfirmation(password, passwordConfirmation)
+  if ((document.getElementById('registration_new')) && (password.value !== '' && passwordConfirmation.value !== '')) {
+    new PasswordConfirmation(password, passwordConfirmation)
 
-        this.passwordConfirmation.addEventListener('input', this.checkPasswordConfirmation)
-    }
+    this.passwordConfirmation.addEventListener('input', this.checkPasswordConfirmation)
+  }
 })
