@@ -1,11 +1,11 @@
-class PasswordConfirmation {
-  constructor(password, passwordConfirmation) {
-    this.password = password
-    this.passwordConfirmation = passwordConfirmation
+export class PasswordConfirmation {
+  constructor() {
+    this.password = document.querySelector('#user_password')
+    this.passwordConfirmation = document.querySelector('#user_password_confirmation')
   }
 
   checkPasswordConfirmation() {
-    if (this.passwordConfirmation && this.password) {
+    if ((this.passwordConfirmation && this.password) && (password.value !== '' && passwordConfirmation.value !== '')) {
       (this.passwordConfirmation === this.password) ? this.showMatch() : this.showMismatch()
     } else {
       this.messageHide()

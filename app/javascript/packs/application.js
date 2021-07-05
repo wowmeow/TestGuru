@@ -11,6 +11,8 @@ import "channels"
 import("../utilities/sorting_table")
 import("../utilities/password_confirmation")
 
+require("../using_utilities/use_password_confirmation")
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -22,13 +24,10 @@ document.addEventListener('turbolinks:load', () => {
 
 // password confirmation
 document.addEventListener('turbolinks:load', () => {
-  // const registration = document.getElementById('registration_new')
-  const password = document.querySelector('#user_password')
-  const passwordConfirmation = document.querySelector('#user_password_confirmation')
 
-  if ((document.getElementById('registration_new')) && (password.value !== '' && passwordConfirmation.value !== '')) {
-    new PasswordConfirmation(password, passwordConfirmation)
-
-    this.passwordConfirmation.addEventListener('input', this.checkPasswordConfirmation)
+  if (document.getElementById('registration_new')) {
+    const passwordConfirmation = new PasswordConfirmation()
+    passwordConfirmation.checkPasswordConfirmation()
   }
+
 })

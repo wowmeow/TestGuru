@@ -1,4 +1,4 @@
-class SortingTable {
+export class SortingTable {
   constructor(table_id) {
     this.table = document.getElementById(table_id)
     this.sortedRows = [];
