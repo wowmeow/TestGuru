@@ -1,11 +1,15 @@
 <h1>Тесты</h1>
 
-<table>
+<table class="table">
   <tr>
-    <th>Название</th>
+    <th class="sort-by-title pointer">
+      Название
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
     <th>Уровень</th>
     <th>Количество вопросов</th>
-    <th colspan="2">Действие</th>
+    <th>Действие</th>
   </tr>
 
 <%= render @tests %>

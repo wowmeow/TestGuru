@@ -8,6 +8,22 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import("../utilities/sorting_table")
+import("../utilities/password_confirmation")
+
+require("../using_utilities/use_password_confirmation")
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+document.addEventListener('turbolinks:load', () => {
+  // sorting the test table
+  const table_id = "test_table"
+
+  // password confirmation
+  if (document.getElementById('registration_new')) {
+    const passwordConfirmation = new PasswordConfirmation()
+    passwordConfirmation.checkPasswordConfirmation()
+  }
+})
