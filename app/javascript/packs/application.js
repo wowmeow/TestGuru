@@ -17,17 +17,13 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-// sorting the test table
 document.addEventListener('turbolinks:load', () => {
+  // sorting the test table
   const table_id = "test_table"
-})
 
-// password confirmation
-document.addEventListener('turbolinks:load', () => {
-
+  // password confirmation
   if (document.getElementById('registration_new')) {
     const passwordConfirmation = new PasswordConfirmation()
     passwordConfirmation.checkPasswordConfirmation()
   }
-
 })
