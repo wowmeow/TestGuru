@@ -55,3 +55,6 @@ db/sphinx
 .byebug_history
 /node_modules
 /public/assets
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
