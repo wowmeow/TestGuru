@@ -8,22 +8,32 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-import("../utilities/sorting_table")
-import("../utilities/password_confirmation")
+import "../utilities/sorting_table"
+import "../utilities/password_confirmation"
+import "../utilities/form_inline"
 
-require("../using_utilities/use_password_confirmation")
+import { FormInline } from './utilities/form_inline.js'
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-document.addEventListener('turbolinks:load', () => {
-  // sorting the test table
+document.addEventListener('turbolinks:load',  function () {
+  // Sorting the test table
   const table_id = "test_table"
 
-  // password confirmation
+  // Password confirmation
   if (document.getElementById('registration_new')) {
     const passwordConfirmation = new PasswordConfirmation()
     passwordConfirmation.checkPasswordConfirmation()
   }
+
+  // Edit the test name
+  const allSelectedTests = document.querySelectorAll('.form-inline-link')
+
+  for (let i = 0; i < allSelectedTests.length; i++) {
+    new FormInline(allSelectedTests[i])
+  }
+
+  allSelectedTests.errorHandler
 })
