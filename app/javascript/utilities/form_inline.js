@@ -1,16 +1,16 @@
 export class FormInline {
   constructor(selectedTest) {
     this.test = selectedTest
-    this.edit_button = this.test.addEventListener('click', this.formInlineLinkHandler)
+    this.editButton = this.test.addEventListener('click', this.formInlineLinkHandler)
   }
 
   errorHandler() {
-      const errors = document.querySelector('.resource-errors')
+    const errors = document.querySelector('.resource-errors')
 
-      if (errors) {
-        const resourceId = errors.dataset.resourceId
-        formInlineHandler(resourceId)
-      }
+    if (errors) {
+      const resourceId = errors.dataset.resourceId
+      formInlineHandler(resourceId)
+    }
   }
 
   formInlineLinkHandler(event) {
@@ -34,6 +34,6 @@ export class FormInline {
       formInline.classList.add('hide')
       link.textContent = 'Edit'
     }
-}
+  }
 
 }
