@@ -11,6 +11,7 @@ import "channels"
 import "../utilities/sorting_table"
 import "../utilities/password_confirmation"
 import "../utilities/form_inline"
+import "../utilities/progress_bar"
 
 import { FormInline } from './utilities/form_inline.js'
 
@@ -25,15 +26,20 @@ document.addEventListener('turbolinks:load',  function () {
   // Password confirmation
   if (document.getElementById('registration_new')) {
     const passwordConfirmation = new PasswordConfirmation()
-    passwordConfirmation.checkPasswordConfirmation()
+    passwordConfirmation.checkPasswordConfirmation
   }
 
   // Edit the test name
   const allSelectedTests = document.querySelectorAll('.form-inline-link')
 
-  for (let i = 0; i < allSelectedTests.length; i++) {
-    new FormInline(allSelectedTests[i])
-  }
+  allSelectedTests.forEach(function (test) {
+    new FormInline(test)
+  })
 
   allSelectedTests.errorHandler
+
+  // Progress bar on the test passage page
+  if (document.querySelector(".progress-bar"))
+    var progress = new ProgressBar()
+    progress.changeValueOfProgress
 })
