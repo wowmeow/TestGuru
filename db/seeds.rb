@@ -22,7 +22,8 @@ questions = Question.create!([{ text: 'Rails - это ...', test: tests[0] },
                               { text: 'Ruby относится к высокоуровнему языку программирования?', test: tests[1] },
                               { text: 'Rails реализует архитектурный шаблон Model-View-Controller?', test: tests[1] },
                               { text: 'В каком году возник С++?', test: tests[2] },
-                              { text: 'В какой компании работали созатели С#?', test: tests[3] }])
+                              { text: 'В какой компании работали созатели С#?', test: tests[3] },
+                              { text: 'Основным компонентом Rails НЕ является ...', test: tests[0] }])
 
 Answer.create!([{ title: 'язык программирования', correct: false, question: questions[0] },
                 { title: 'фреймворк', correct: true, question: questions[0] },
@@ -34,7 +35,11 @@ Answer.create!([{ title: 'язык программирования', correct: f
                 { title: '1981', correct: false, question: questions[3] },
                 { title: '1990', correct: false, question: questions[3] },
                 { title: 'Google', correct: false, question: questions[4] },
-                { title: 'Microsoft', correct: true, question: questions[4] }])
+                { title: 'Microsoft', correct: true, question: questions[4] },
+                { title: 'модель', correct: false, question: questions[5] },
+                { title: 'представление', correct: false, question: questions[5] },
+                { title: 'браузер', correct: true, question: questions[5] },
+                { title: 'контроллер', correct: false, question: questions[5] }])
 
 TestPassage.create!([{ user: users[0], test: tests[0] },
                      { user: users[0], test: tests[1] },
