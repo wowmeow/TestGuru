@@ -40,6 +40,6 @@ document.addEventListener('turbolinks:load',  function () {
 
   // Progress bar on the test passage page
   if (document.querySelector(".progress-bar"))
-    var progress = new ProgressBar()
-    progress.changeValueOfProgress
+    var deprecated = new ProgressBar()
+      deprecated.changeValueOfProgress
 })
