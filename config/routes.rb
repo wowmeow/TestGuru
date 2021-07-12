@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users, path: :gurus, path_names: { sing_in: :login, sing_out: :logout },
                      controllers: { session: 'sessions' }
 
+  resources :badges, only: :index
+
   resources :gists, only: :create
 
   resources :tests, only: :index do
@@ -26,6 +28,8 @@ Rails.application.routes.draw do
         resources :answers, shallow: true, except: :index
       end
     end
+
+    resources :badges, shallow: true
 
     resources :gists, only: :index
   end
