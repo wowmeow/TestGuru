@@ -1,0 +1,20 @@
+<%= form_with model: [:admin, @badge], local: true do |form| %>
+  <%= render 'shared/errors', resource: @badge %>
+
+  <p>
+    <%= form.label :name, 'Название значка:' %><br>
+    <%= form.text_field :name, id: :badge_name %>
+  </p>
+
+  <p>
+    <%= form.label :image_name, 'Изображение значка:' %><br>
+    <%= form.text_field :image_name, id: :badge_image_name %>
+  </p>
+
+  <p>
+    <%= form.label :receiving_condition, 'Условие получения:' %><br>
+    <%= form.text_field :receiving_condition, id: :badge_receiving_condition %>
+  </p>
+
+  <p><%= form.submit 'Сохранить'%></p>
+<% end %>
