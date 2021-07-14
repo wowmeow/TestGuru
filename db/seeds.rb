@@ -49,8 +49,3 @@ TestPassage.create!([{ user: users[0], test: tests[0] },
                      { user: users[1], test: tests[3] },
                      { user: users[2], test: tests[1] },
                      { user: users[2], test: tests[2] }])
-
-# Badge.create!([{ name: 'Backend monster', image_name: '.',
-#                  receiving_condition: 'Выдать бэйдж после успешного прохождения всех тестов из категории Backend' },
-#                { name: 'First test', image_name: '.',
-#                  receiving_condition: 'Выдать бэйдж после успешного прохождения теста с первой попытки' }])
