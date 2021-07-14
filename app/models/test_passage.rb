@@ -15,6 +15,7 @@ class TestPassage < ApplicationRecord
     self.correct_questions += 1 if correct_answer?(answer_ids)
 
     self.current_question = next_question
+    self.success = true if success?
     save!
   end
 
