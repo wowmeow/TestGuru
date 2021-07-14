@@ -1,4 +1,7 @@
 class Admin::BadgesController < Admin::BaseController
+  before_action :set_receiving_condition, only: %i[new create edit update]
+  before_action :find_badge, only: %i[edit update destroy]
+
   def index
     @badges = Badge.all
   end
@@ -16,6 +19,8 @@ class Admin::BadgesController < Admin::BaseController
       render :new
     end
   end
+
+  def edit; end
 
   def update
     @question = find_question
@@ -35,11 +40,14 @@ class Admin::BadgesController < Admin::BaseController
   private
 
   def badges_params
-    params.require(:badges).permit(:name, :image_name, :receiving_condition)
+    params.require(:badge).permit(:name, :image_name, :receiving_condition)
   end
 
   def find_badge
     @badge = Badge.find(params[:id])
   end
 
+  def set_receiving_condition
+    @receiving_condition = Badge::RECEIVING_CONDITION
+  end
 end
