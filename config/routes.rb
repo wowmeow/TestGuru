@@ -5,6 +5,7 @@ Rails.application.routes.draw do
                      controllers: { session: 'sessions' }
 
   resources :badges, only: :index
+  resources :user_badges, only: :index
 
   resources :gists, only: :create
 

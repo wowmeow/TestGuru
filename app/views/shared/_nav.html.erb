@@ -1,7 +1,9 @@
-<% if user_signed_in %>
+<% if user_signed_in? %>
   <p class="nav user">
     <%= link_to 'TestGuru', root_path %> |
     Добро пожаловать, <b><%= current_user.name %></b> |
+    <%= link_to 'Значки', badges_path %> |
+    <%= link_to 'Мои значки', user_badges_path %> |
     <%= link_to 'Выход', destroy_user_session_path, method: :delete %><br>
   </p>
 <% else %>
