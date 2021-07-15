@@ -1,0 +1,19 @@
+<h1>Значки</h1>
+
+<%= render 'shared/errors', resource: @badge %>
+
+<table class="table">
+  <tr>
+    <th>Название</th>
+    <th>Изображение</th>
+  </tr>
+
+  <% @user_badges.each do |user_badge| %>
+    <tr>
+      <td>
+        <img src="<%= user_badge.badge.image %>" width="189" height="255" alt="lorem">
+      </td>
+      <td class="text-center"><%= user_badge.quantity %></td>
+    </tr>
+  <% end %>
+</table>
