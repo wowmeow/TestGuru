@@ -8,7 +8,7 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_current_question
 
   def completed?
-    current_question.nil?
+    current_question.nil? && time_over?
   end
 
   def accept!(answer_ids)
@@ -28,6 +28,10 @@ class TestPassage < ApplicationRecord
 
   def successful_result?
     current_result >= SUCCESSFUL_RESULT
+  end
+
+  def time_over?
+    created_at + test.timer.minutes > Time.current
   end
 
   private
