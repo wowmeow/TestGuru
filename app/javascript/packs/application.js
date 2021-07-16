@@ -12,6 +12,7 @@ import "../utilities/sorting_table"
 import "../utilities/password_confirmation"
 import "../utilities/form_inline"
 import "../utilities/progress_bar"
+import "../utilities/timer"
 
 import { FormInline } from './utilities/form_inline.js'
 
@@ -42,4 +43,9 @@ document.addEventListener('turbolinks:load',  function () {
   if (document.querySelector(".progress-bar"))
     var deprecated = new ProgressBar()
       deprecated.changeValueOfProgress
+
+  // Timer
+  if (document.querySelector('.timer')){
+    var timer = new Timer()
+  }
 })
