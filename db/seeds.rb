@@ -13,9 +13,9 @@ users = User.create!(
 categories = Category.create!([{ title: 'Программирование' },
                                { title: 'Дизайн' }])
 
-tests = Test.create!([{ title: 'RoR', level: 0, category: categories[0], author: users[0] },
+tests = Test.create!([{ title: 'RoR', level: 0, category: categories[0], author: users[0], timer: 30 },
                       { title: 'RoR', level: 1, category: categories[0], author: users[1] },
-                      { title: 'C++', level: 0, category: categories[0], author: users[1] },
+                      { title: 'C++', level: 0, category: categories[0], author: users[1], timer: 100 },
                       { title: 'C#', level: 0, category: categories[0], author: users[2] }])
 
 questions = Question.create!([{ text: 'Rails - это ...', test: tests[0] },
