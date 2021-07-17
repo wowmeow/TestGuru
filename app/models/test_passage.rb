@@ -38,6 +38,17 @@ class TestPassage < ApplicationRecord
     question_number.to_s + ' / ' + self.test.questions.count.to_s
   end
 
+  def seconds_left
+    past_seconds = (Time.now - self.created_at).to_i
+    timer_seconds = self.test.timer * 60
+
+    timer_seconds - past_seconds
+  end
+
+  def time_over?
+    self.test.timer ? seconds_left <= 0 : false
+  end
+
   private
 
   def before_validation_set_current_question

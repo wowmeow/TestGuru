@@ -1,37 +1,41 @@
 export class Timer {
   constructor() {
     this.timer = document.querySelector('.timer')
-    this.seconds_left = Number(this.timer.dataset.secondsLeft)
-    drawTimer(timer, seconds_left)
+    this.second_scount = Number(this.timer.dataset.secondsLeft)
+    this.setTimer(timer, seconds_left)
   }
 
-  drawTimer(timer, seconds) {
-    var minutes = Math.floor(seconds / 60)
-    var seconds = seconds % 60
-    timer.innerHTML = ('0' + minutes).slice(-2) + ":" + ('0' + seconds).slice(-2)
+  setTimer(){
+    const seconds_left = Number(this.timer.dataset.secondsLeft)
+    this.drawTimer(seconds_left)
   }
 
-  getSecondsRemaining(timer) {
-    var current_timer = timer.innerHTML
-    var minutes = Number(current_timer.slice(0, 2))
-    var seconds = Number(current_timer.slice(-2))
+  drawTimer(seconds){
+    const minutes = Math.floor( seconds / 60)
+    this.timer.innerHTML = ('0' + minutes).slice(-2) + ":" + ('0' + (seconds % 60)) .slice(-2)
+  }
+
+  getSecondsRemaining() {
+    const current_timer = this.timer.innerHTML
+    const minutes = Number(current_timer.slice(0, 2))
+    const seconds = Number(current_timer.slice(-2))
 
     seconds += minutes * 60
   }
 
-  initializeClock(timer) {
-    if (timer.innerHTML == "") {
-      setTimer(timer)
+  initializeClock() {
+    if (this.timer.innerHTML == "") {
+      this.setTimer(this.timer)
     }
   }
 
   updateClock() {
-    var total_seconds = getSecondsRemaining(timer);
-    var fixedinterval = setInterval(updateClock, 1000);
+    const total_seconds = getSecondsRemaining(timer);
+    const fixedinterval = setInterval(updateClock, 1000);
 
     total_seconds -= 1
 
-    drawTimer(timer, total_seconds)
+    this.drawTimer(timer, total_seconds)
 
     if (total_seconds == 0) {
       clearInterval(fixedinterval);
