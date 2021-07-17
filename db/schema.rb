@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(version: 2021_07_15_143435) do
   end
 
   create_table "badges", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "image", null: false
+    t.string "title", null: false
+    t.string "description", null: false
+    t.string "image_url", default: "https://pngimg.com/uploads/award/award_PNG65.png"
     t.string "rule_type", null: false
     t.string "rule_value"
     t.datetime "created_at", precision: 6, null: false
