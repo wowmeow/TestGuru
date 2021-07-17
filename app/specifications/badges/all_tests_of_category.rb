@@ -1,5 +1,5 @@
 module Badges
-  class AllCategoriesRuleSpecification < AbstractRuleSpecification
+  class AllTestsOfCategory < AbstractRuleSpecification
     def satisfied?
       return false unless @test_passage.win
 

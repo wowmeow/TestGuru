@@ -15,6 +15,8 @@ class Test < ApplicationRecord
   scope :hard_level, -> { where(level: (5..Float::INFINITY)) }
 
   scope :by_category, ->(category_name) { joins(:category).where(categories: { title: category_name }) }
+  scope :by_category_id, ->(id) { where(category: id) }
+  scope :by_level, ->(level) { where(level: level) }
 
   def self.by_category_only_title(category_name)
     by_category(category_name).pluck(:title)
