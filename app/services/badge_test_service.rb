@@ -1,7 +1,7 @@
 class BadgeTestService
   RULES = {
     on_first_try: Badges::OnFirstTryRuleSpecification,
-    all_categories: Badges::AllCategoriesRuleSpecification,
+    all_categories: Badges::AllCategoriesRuleSpecification
   }.freeze
 
   def initialize(test_passage)

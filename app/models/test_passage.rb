@@ -34,6 +34,10 @@ class TestPassage < ApplicationRecord
     created_at + test.timer.minutes > Time.current
   end
 
+  def progress_bar_string
+    question_number.to_s + ' / ' + self.test.questions.count.to_s
+  end
+
   private
 
   def before_validation_set_current_question
