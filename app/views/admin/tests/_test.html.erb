@@ -5,6 +5,11 @@
   </td>
   <td><%= test.level %></td>
   <td><%= test.questions.count %></td>
+  <td>
+    <% if test.timer %>
+      <%= test.timer %>
+    <% end %>
+  </td>
   <td><%= link_to 'Просмотреть', admin_test_path(test) %></td>
   <td>
     <%= link_to 'Редактировать',
