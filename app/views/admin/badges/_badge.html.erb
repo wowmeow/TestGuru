@@ -1,0 +1,15 @@
+<tr>
+  <td><%= badge.name %></td>
+  <td><%= badge.image %></td>
+  <td>
+    <img src="<%= badge.image %>" width="200" height="255">
+  </td>
+  <td><%= link_to 'Просмотреть', admin_badge_path(badge) %></td>
+  <td><%= link_to 'Редактировать', edit_admin_badge_path(badge) %></td>
+  <td>
+    <%= link_to 'Удалить',
+                admin_badge_path(badge),
+                method: :delete,
+                data: {confirm: 'Вы уверенны, что хотите удалить значок?'}%>
+  </td>
+</tr>

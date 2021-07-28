@@ -12,7 +12,8 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed? || @test_passage.time_over?
       # TestMailer.completed_test(@test_passage).deliver.now
       @test_passage.update!(success: true) if @test_passage.passed?
-      BadgeDistributorService.new(@test_passage).call
+      BadgeManagerService.call(@test_passage)
+      redirect_to result_test_passage_path(@test_passage)
     else
       render :show
     end

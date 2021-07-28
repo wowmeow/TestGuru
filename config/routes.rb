@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users, path: :gurus, path_names: { sing_in: :login, sing_out: :logout },
                      controllers: { session: 'sessions' }
 
+  resources :badges, only: %i[index]
+
   resources :gists, only: :create
 
   resources :tests, only: :index do
@@ -28,5 +30,7 @@ Rails.application.routes.draw do
     end
 
     resources :gists, only: :index
+
+    resources :badges
   end
 end
