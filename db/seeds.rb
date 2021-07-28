@@ -13,8 +13,8 @@ users = User.create!(
 categories = Category.create!([{ title: 'Программирование' },
                                { title: 'Дизайн' }])
 
-tests = Test.create!([{ title: 'RoR', level: 0, category: categories[0], author: users[0] },
-                      { title: 'RoR', level: 1, category: categories[0], author: users[1] },
+tests = Test.create!([{ title: 'RoR', level: 0, category: categories[0], author: users[0], timer: 30 },
+                      { title: 'RoR', level: 1, category: categories[0], author: users[1], timer: 30 },
                       { title: 'C++', level: 0, category: categories[0], author: users[1] },
                       { title: 'C#', level: 0, category: categories[0], author: users[2] }])
 
