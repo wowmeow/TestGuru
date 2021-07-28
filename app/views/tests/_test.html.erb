@@ -2,5 +2,10 @@
   <td><%= test.title %></td>
   <td><%= test.level %></td>
   <td><%= test.questions.count %></td>
+  <td>
+    <% if test.timer %>
+      <%= test.timer %>
+    <% end %>
+  </td>
   <td><%= button_to 'Пройти тест', start_test_path(test) %></td>
 </tr>

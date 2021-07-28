@@ -13,6 +13,13 @@
   <p>Количество вопросов: <%= @test_passage.test.questions.count %></p>
   <p>Номер текущего вопроса: <%= @test_passage.current_question_number %></p>
 
+  <% if @test_passage.test.timer %>
+    Таймер:
+    <%= content_tag :span, "",
+                    class: "timer",
+                    data: { seconds_left: @test_passage.seconds_left } %>
+  <% end %>
+
   <div class="progress-bar">
     <b>
     Прогресс:
